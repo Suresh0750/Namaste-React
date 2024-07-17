@@ -1,4 +1,8 @@
 
+
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+
 // const h1 = document.createElement('h1')
 // h1.innerHTML = `<h1>Namaste React</h1>`
 // document.getElementById("root").append(h1)
