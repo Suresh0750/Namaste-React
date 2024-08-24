@@ -41,7 +41,7 @@ npm install -D parcel
 
 // # babel 
     babel used to convert the our JSX code to react.code like React.createElement('h1',{},'child')
-    if you using react cdn link babel won't needed.
+    if you using react cdn link babel won't needed. That means if we create element like this React.createElement('h1',{},'child')
 
 // Why we use react ?
 
@@ -56,7 +56,7 @@ npm install -D parcel
 // React reconcilaration algorithm?
 
     React reconcilaration is also known as react fiber. whenever somthing changes in ui that's known as reconcilaration. 
-    These actual dom and virtual dom, diff algorithm is comes undet the React algorithm or reconcilaration.
+    These actual dom and virtual dom, diff algorithm is comes under the React algorithm or reconcilaration.
 
 
         // actual dom?
@@ -67,6 +67,7 @@ npm install -D parcel
 
             virtual dom is representation of actual dom.  Virtual dom is a react element that means we right the html inside the component. if we put console.log our component is show as object we can say virtual dom is js object.
 
+            using virtual dom and find the different between the two virtual dom and update the actual dom is existing technique react took and use that. That is why react is so fast . basically it is a dom manipulation.
 
         // diff algorithm?
 
@@ -85,8 +86,41 @@ npm install -D parcel
 
     if we use useState meanse using the useState only the reconcilation that means React fiber is triger. so diff algorithm and virtual dom and actual dom everything is start for updating the datalayer. Once the datalayer is update our ui layer is also update and our page that particular componenct will rerenter. These all comes under the dom manipulation.
 
+    whenever state variables update, react triggers a reconcilations cycle(re-renders the components)
 
 // microservice 
 
     Before microservice we followed monolythic architecture it every service we wrote in the same folder. But microservice is used to split and working is seperate and also have conversations. our Backend folder, Notification folder, UI folder every thing will run in seperatly. so these is known as seperation of concerns and single responsibility principle.
+
+
+
+
+// Render mechanism
+
+    // * first method
+     load-->API call-- -->render 
+
+    // * second method
+     load --> render --> API CALL --> render    ==== for this patern we use (useEffect hook)
+
+
+    react follow the second method for build a web site because of it better user experience.
+
+
+// Example of hook
+
+    const {useState} = {useState:function(){console.log('Good morning')}}
+    useState()
+
+
+// fetch it will return promise
+
+// fetch is not given by javascript fetch is given by browser and JSX has fetch method alos.
+
+
+//  # conditional rendering 
+
+    rendering page based on the condition it's called conditional rendering.
+
+    using if else also we are rendering some page that also include here.
 
