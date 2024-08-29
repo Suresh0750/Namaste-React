@@ -8,6 +8,20 @@ import ReactDOM from 'react-dom/client'
 import Header from './components/Header'
 import Body from './components/Body'
 import resData from './utils/mockData'
+import { createBrowserRouter,RouterProvider } from 'react-router-dom'
+import About from './components/About'
+import Contect from './components/contect'
+import Error from './components/Error'
+
+
+function ErrorPage(){
+    return (
+        <h2>
+            You are encounter new error
+        </h2>
+    )
+}
+
 
 // // const h1 = document.createElement('h1')
 // // h1.innerHTML = `<h1>Namaste React</h1>`
@@ -65,4 +79,21 @@ const AppLayout = ()=>{
     </div>
 }
 
-root.render(<AppLayout/>)
+
+const appRoute = createBrowserRouter([
+    {
+        path :'/',
+        element : <AppLayout/>,
+        errorElement: <Error/>
+    },
+    {
+        path :'/About',
+        element : <About/>
+    },
+    {
+        path :'/Contect',
+        element : <Contect/>
+    }
+])
+
+root.render(<RouterProvider router={appRoute}/>)

@@ -88,11 +88,18 @@ npm install -D parcel
 
     whenever state variables update, react triggers a reconcilations cycle(re-renders the components)
 
+    have to use useState in side the component don't use outside.
+
 // microservice 
 
     Before microservice we followed monolythic architecture it every service we wrote in the same folder. But microservice is used to split and working is seperate and also have conversations. our Backend folder, Notification folder, UI folder every thing will run in seperatly. so these is known as seperation of concerns and single responsibility principle.
 
+## useEffect hook
 
+    useEffect is hook which is provide by react for usually fetching the data. maintain the side effect. side effect means after rendering the page the API call then again render the page it is sideEffect. 
+    if it is no dependency array => useEffect is called every render.
+    if array is empty  => useEffect is called one time when page initial render.
+    if array has value => useEffect is called when the value is change.
 
 
 // Render mechanism

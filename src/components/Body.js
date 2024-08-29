@@ -39,6 +39,7 @@ export default Body = ({resData})=>{
                 </div>
                 <div className='res-container'>
                     {
+                    
                         showListResData.map((data,ind) => <RestrarentCard key={Math.random()} resData={data}/>)
                     }
                     {
