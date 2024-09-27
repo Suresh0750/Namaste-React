@@ -4,17 +4,37 @@ import { useState, useEffect } from "react"
 
 
 export default Body = ({resData})=>{
-
+    const [listOfRestaurants, setListOfRestraunt] = useState([]);
+    const [filteredRestaurant, setFilteredRestaurant] = useState([]);
+  
+    const [searchText, setSearchText] = useState("");
+  
     const [listResData,setListResData] = useState([])
     const [showListResData, setShowListResData] = useState([])
     const [searchVal, setSearchval] = useState('')
     console.log(searchVal)
+    async function fetchData() {
+  
+        const data = await fetch(
+            "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING"
+        );    
+        const json = await data.json();
+        alert(JSON.stringify(json))
+        setListOfRestraunt(
+            json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+          );
+          setFilteredRestaurant(
+            json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+          );
+          alert(JSON.stringify(listOfRestaurants))
+          console.log(JSON.stringify(json))
+        
+    }
     useEffect(()=>{
         setListResData(resData)
         setShowListResData(resData)
-
-        console.log('hello world')
-        filderData()
+        // fetchData()
+        // filderData() // * we don't use this fetch we used mock data
     },[])
 
     console.log('Body Rendered')

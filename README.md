@@ -131,3 +131,36 @@ npm install -D parcel
 
     using if else also we are rendering some page that also include here.
 
+
+//  # custom error data
+
+    using the useRouteError()
+
+    using useRouter we can catch and show the error message to user. It provided by 'react-router-dom'
+
+
+// * polyfil
+
+    polyfill is a Javascript library .
+    polyfill is the piece of the code that provide the functionality of modern features on older browser or environments that do not support those features natively. Essentially, polyfills allow developers to use new features or standards such as HTML 5  API, or Node.js modules while still supporting environments that lack built-in suppport for them.
+    
+
+    example : fetch , geolocation
+
+    we were use XMLHttpRequest for fetching the data now currectly we are use fetch and this is provide by that browser but those feature isn't suport all browser usesing polyfill we can use all browser.
+
+// * react-router-dom
+
+
+
+## is React is single page application or not?
+
+    React is single page application. 
+
+## 2 types of Routing 
+
+    1- client side routing.  // * client side routing page won't reload that's component only replace.
+    2-  server side routing. // * The server will go to backend then fetching the data page will rerender.
+
+// * server side routing we make network call for fetching the data then it is reload.
+

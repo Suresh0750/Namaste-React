@@ -8,10 +8,11 @@ import ReactDOM from 'react-dom/client'
 import Header from './components/Header'
 import Body from './components/Body'
 import resData from './utils/mockData'
-import { createBrowserRouter,RouterProvider } from 'react-router-dom'
+import { createBrowserRouter,RouterProvider,Outlet } from 'react-router-dom'
 import About from './components/About'
 import Contect from './components/contect'
 import Error from './components/Error'
+// import RestrarentMenu from './components/RestrarentMenu.js'
 
 
 function ErrorPage(){
@@ -72,10 +73,10 @@ const root = ReactDOM.createRoot(document.getElementById("root") )
 //***https://www.google.com/search?sca_esv=4a42ef09a1334cc3&sca_upv=1&rlz=1C1ONGR_enIN1096IN1096&sxsrf=ADLYWIL8X4FlKNZ7zfg5D8ijtPHeV0tsmQ:1721403822404&q=food+delivery+app+icon&udm=2&fbs=AEQNm0B8dVdIWR07uWWlg1TdKnNtA1cwMugrQsIKmAo5AEZHWRFlUeGLxYlhagMfUatSvHu3MSamP9Qd2SfjyZyVIdPFrZFmdorP0BQX-5QUvERZ7CgntLysKxPYR85LNkkQ-ODVQlzCBgHDwYGwBEtb1wyzIiqYOAGOFOhRLG73H-MUdJY1ZFjTgiSsk2gQgTHDHU_Mnn5ewYy4nGfZAENFgsXyYdMtYQ&sa=X&ved=2ahUKEwiruuX6uLOHAxVPi2MGHS8VEMEQtKgLegQIFxAB&biw=767&bih=738&dpr=1.25#vhid=E1eHZxF726Zf7M&vssid=mosaic
 
 
-const AppLayout = ()=>{
+const  AppLayout = ()=>{
     return <div className="app">
         <Header/>
-        <Body resData={resData}/>
+        <Outlet />   // * Outlet which is provide by react-router-dom . It is act like a children and it will replace children components according their path.
     </div>
 }
 
@@ -84,15 +85,38 @@ const appRoute = createBrowserRouter([
     {
         path :'/',
         element : <AppLayout/>,
+        children :[
+            {
+                path:'/',
+                element:<Body resData={resData}/>
+            },
+            {
+                path :'/About',
+                element : <About/>
+            },
+            {
+                path :'/contect',
+                element : <Contect/>
+            },
+            {
+                path :'/restrarant/:resId',
+                element :<RestrarentMenu />
+            }
+        ],
         errorElement: <Error/>
-    },
-    {
-        path :'/About',
-        element : <About/>
-    },
-    {
-        path :'/Contect',
-        element : <Contect/>
+    },{
+        path : '/secondParant',
+        element : <Body resData={resData}/>,
+        children : [
+            {
+                path:'/secondParant/about',
+                element : <About />
+            },{
+                path : '/secondParant/contect',
+                element : <Contect />
+            }
+        ],
+        errorElement : <Error />
     }
 ])
 

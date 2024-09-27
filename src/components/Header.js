@@ -1,5 +1,6 @@
 import logo from '../../Images/logo.png'
 import { useState } from 'react'
+import {Link} from 'react-router-dom'
 
 export default  Header = ()=>{
     const [btnNamasteReact, setbtnNamasteReact] = useState(
@@ -11,8 +12,16 @@ export default  Header = ()=>{
                 </div>
                 <div className='nav-items'>
                     <ul>
-                        <li>Home</li>
-                        <li>About Us</li>
+                        <li>
+                            <Link to={'/'}>
+                                Home
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to='/About'>
+                                About Us
+                            </Link>
+                        </li>
                         <li>Contact Us</li>
                         <li>Card</li>
                         <button style={{padding:'2px 5px'}} onClick={()=>btnNamasteReact=='login' ? setbtnNamasteReact('logout') : setbtnNamasteReact('login')}>{btnNamasteReact}</button>
